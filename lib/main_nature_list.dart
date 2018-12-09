@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NatureList extends StatelessWidget {
   final List<Map<String, dynamic>> natures;
@@ -16,12 +17,29 @@ class NatureList extends StatelessWidget {
             child: Image.network(natures[index]['image']),
           ),
           Container(
+            margin: EdgeInsets.only(top: 10.0),
             child: Text(
               natures[index]['title'].toUpperCase(),
               style: TextStyle(
-                  fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+                  fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
             ),
-            padding: EdgeInsets.only(top: 10.0),
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    margin: EdgeInsets.only(top: 10.0),
+                    padding: EdgeInsets.only(right: 5.0),
+                    child: Text('Rating: ${natures[index]['rating']}',
+                        style: TextStyle(fontWeight: FontWeight.bold))),
+                Icon(
+                  FontAwesomeIcons.solidStar,
+                  color: Colors.amber,
+                  size: 20.0,
+                ),
+              ],
+            ),
           ),
           Container(
               padding: EdgeInsets.all(10.0),
